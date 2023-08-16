@@ -11,6 +11,4 @@
 
 # Rodar aplicação
 ```php artisan serve```
-a
-aaa
 

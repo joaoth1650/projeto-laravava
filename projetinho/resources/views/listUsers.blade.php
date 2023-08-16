@@ -15,6 +15,10 @@
 
     </head>
     <body class="">
-       a palavra é: {{$joao}}
+        <h1 class="text-center text-2xl">Lista de usuarios</h1>
+        <div>
+            <p>Username: {{ $user->name }}</p>
+            <p>Email: {{ $user->email }}</p>
+        </div>
     </body>
 </html>

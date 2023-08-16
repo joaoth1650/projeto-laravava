@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Form\TestController;
 use App\Http\Controllers\FristController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +20,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('listUser', [FristController::class,'listUser']);
+Route::get('listUser', [UserController::class, 'listUser']);
