@@ -7,15 +7,23 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-   public function listUser()
+   public function createUser()
    {
-        // $user = new User();
-        // $user->name = "João";
-        // $user->email = "joao@joao";
-        // $user->password = hash("sha256", "123");
-        // $user->save();
-        // echo "<h1>Lista users</h1>" ;
-        $user = User::where('id', 1)->first();
-        return view('listUsers', ['user' => $user]);
+      $user = new User();
+      $user->name = "João";
+      $user->email = "joao@joao";
+      $user->password = hash("sha256", "123");
+      $user->save();
+      echo "<h1>Lista users</h1>";
+   }
+   public function listUser(int $user)
+   {
+      $user = User::where('id', $user)->first();
+      return view('listUser', ['user' => $user]);
+   }
+   public function listAllUsers()
+   {
+      $users = User::all();
+      return view('listAllUsers', ['users' => $users]);
    }
 }

@@ -20,4 +20,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('listUser', [UserController::class, 'listUser']);
+Route::get('listAllUsers', [UserController::class, 'listAllUsers']);
+Route::get('listUser/{user}', [UserController::class, 'listUser']);
