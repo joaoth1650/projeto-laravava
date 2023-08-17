@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\Form\TestController;
-use App\Http\Controllers\FristController;
+use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+/* Usuarios */ 
+Route::get('listUser/new', [UserController::class, 'formAddUser'])->name('newUser');
+Route::post('listUser/store', [UserController::class, 'storeNewUser'])->name('cadastro.store');
+Route::get('listAllUsers', [UserController::class, 'listAllUsers'])->name('listAllUsers');
+Route::get('listUser/{user}', [UserController::class, 'listUser'])->name('listUser');
 
-Route::get('listAllUsers', [UserController::class, 'listAllUsers']);
-Route::get('listUser/{user}', [UserController::class, 'listUser']);
