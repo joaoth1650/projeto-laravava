@@ -15,13 +15,16 @@
       <td>{{$user->name}}</td>
       <td>{{$user->email}}</td>
       <td>
-          <a class="text-blue-700 hover:text-sky-400"   href="listUser/{{$user->id}}">Ver Usuario</a>
-          <form action="" method="post">
-            <input type="hidden" name="User" value="">
-            <button  class="bg-red-500 text-center mx-auto" type="subit" value="remover">remover</button>
-          </form>
+        <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-700"><a href="listUser/{{$user->id}}">Ver Usuario</a></button>
+          <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-700"><a href="{{ route('editUser', $user->id) }}">Editar</a></button>
+          <form action="{{ route('listAllUsers.destroy', $user->id) }}" method="post">
+            @csrf
+            @method('DELETE')
+            <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600" type="submit">Excluir</button>
+        </form>        
       </td>
     </tr>
   @endforeach
+  
 </table>
 @endsection
